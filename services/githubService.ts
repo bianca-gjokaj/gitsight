@@ -15,7 +15,12 @@ async function ghFetch<T>(path:string): Promise<T> {
   }
   if (res.status ===403) {
     const reset = res.headers.get('X-RateLimit-Reset');
-    const resetTime = reset ? new Date(Number(reset) * 1000) .toLocaleTimeString():'soon';
+    const resetTime = reset 
+    ? new Date(Number(reset) * 1000) .toLocaleTimeString()
+    :'soon';
+    throw new Error(`Github API rate limit exceeded. Resets at ${resetTime}.`);
+  }
+  if (!res.ok) {
     throw new Error(`Github API error (${res.status}). Try again later.`);
   }
   return res.json() as Promise<T>;
