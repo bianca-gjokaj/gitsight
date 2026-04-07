@@ -19,7 +19,7 @@ export interface GitHubUser {
   updated_at: string;
 }
 
-export interface GitHubRepos {
+export interface GitHubRepo {
   id: number;
   name: string;
   full_name: string;
@@ -86,10 +86,10 @@ export interface RepoSizeEntry {
 
 export interface DashboardData {
   user: GitHubUser;
-  repos: GitHubRepos[];
+  repos: GitHubRepo[];
   languages: LanguageBreakdown[];
   stats: RepoStats;
-  topReposByStars: GitHubRepos[];
+  topReposByStars: GitHubRepo[];
   commitActivity: CommitDataPoint[];
   activityByDay: DayActivity[];
   monthlyTrend: MonthlyTrend[];
