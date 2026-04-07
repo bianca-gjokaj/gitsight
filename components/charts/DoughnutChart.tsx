@@ -24,7 +24,7 @@ export default function DoughnutChart({
     cutout,
     plugins: {
       legend: { display: false },
-      tooltip: tooltipStyle(dark),
+      tooltip: tooltipStyle<'doughnut'>(dark),
     },
     ...extraOptions,
   };
