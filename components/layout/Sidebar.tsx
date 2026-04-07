@@ -15,7 +15,7 @@ interface SidebarProps {
   onToggleTheme: () => void;
 }
 
-export default function SideBar ({
+export default function Sidebar ({
   activeNav, onNavChange, dark, onToggleTheme,
 }: SidebarProps) {
   return (
