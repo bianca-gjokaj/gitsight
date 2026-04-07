@@ -1,18 +1,25 @@
-import type { ChartOptions } from 'chart.js';
+import type { ChartOptions, TooltipOptions } from 'chart.js';
 
 // Build shared tooltip styling that adapts to dark/light mode
 
-export function tooltipStyle(dark: boolean) {
+export function tooltipStyle(dark: boolean): Partial<TooltipOptions<"doughnut">> {
   return {
-    backgroundColor: dark ? '#2a2a3e' : '#ffffff',
-    titleColor: dark ? '#e8e8f0' : '#1a1a2e',
-    bodyColor: dark ? 'bbb' : '#666',
-    borderColor: dark ? '#3a3a4e' : '#eee',
+    backgroundColor: dark ? "#2a2a3e" : "#ffffff",
+    titleColor: dark ? "#e8e8f0" : "#1a1a2e",
+    bodyColor: dark ? "#bbb" : "#666",
+    borderColor: dark ? "#3a3a4e" : "#eee",
     borderWidth: 1,
     cornerRadius: 10,
     padding: 12,
-    titleFont: { family: "'DM Sans', sans-serif", weight: '600' as const, size: 12},
-    bodyFont: { family: "'DM Sans', sans-serif", size: 11}
+    titleFont: {
+      family: "'DM Sans', sans-serif",
+      weight: 600,
+      size: 12
+    },
+    bodyFont: {
+      family: "'DM Sans', sans-serif",
+      size: 11
+    }
   };
 }
 
