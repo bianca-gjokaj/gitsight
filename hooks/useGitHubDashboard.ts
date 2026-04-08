@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useState, useCallback } from 'react';
-import { fetchUser, fetchRepos } from '@/services';
+import { useState, useCallback } from "react";
+import { fetchUser, fetchRepos } from "@/services";
 import {
   aggregateLanguages,
   computeRepoStats,
@@ -9,9 +9,9 @@ import {
   generateCommitActivity,
   generateDayActivity,
   generateMonthlyTrend,
-  getRepoSizeDistribution
-} from '@/utils';
-import type { DashboardData } from '@/types';
+  getRepoSizeDistribution,
+} from "@/utils";
+import type { DashboardData } from "@/types";
 
 interface UseGitHubDashboardReturn {
   data: DashboardData | null;
@@ -20,21 +20,24 @@ interface UseGitHubDashboardReturn {
   loadUser: (username: string) => Promise<void>;
 }
 
-// Github Data Fetching and Transformation: returns assembled DashboardData ready for rendering
-export function useGitHubDashboard() : UseGitHubDashboardReturn {
+/**
+ * Orchestrates all GitHub data fetching and transformation.
+ * Returns the assembled DashboardData ready for rendering.
+ */
+export function useGitHubDashboard(): UseGitHubDashboardReturn {
   const [data, setData] = useState<DashboardData | null>(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const loadUser = useCallback(async (username: string) => {
     const trimmed = username.trim();
     if (!trimmed) return;
 
     setLoading(true);
-    setError('');
+    setError("");
 
     try {
-      // fetch user profile and repos concurrently
+      // Fetch user profile and repos concurrently
       const [user, repos] = await Promise.all([
         fetchUser(trimmed),
         fetchRepos(trimmed),
@@ -61,7 +64,8 @@ export function useGitHubDashboard() : UseGitHubDashboardReturn {
         sizeDistribution,
       });
     } catch (err) {
-      const message = err instanceof Error ? err.message : 'An unexpected error occured.';
+      const message =
+        err instanceof Error ? err.message : "An unexpected error occurred.";
       setError(message);
       setData(null);
     } finally {
@@ -69,7 +73,7 @@ export function useGitHubDashboard() : UseGitHubDashboardReturn {
     }
   }, []);
 
-  return {data, loading, error, loadUser};
+  return { data, loading, error, loadUser };
 }
 
 

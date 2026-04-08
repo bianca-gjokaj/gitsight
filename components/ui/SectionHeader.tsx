@@ -1,7 +1,7 @@
 interface SectionHeaderProps {
   title: string;
   subtitle?: string;
-  children?: React.ReactNode; //right-side actions
+  children?: React.ReactNode; // right-side actions slot
 }
 
 export default function SectionHeader({

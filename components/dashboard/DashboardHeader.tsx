@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { SectionHeader, FilterPill } from "../ui";
+import { SectionHeader, FilterPill } from "@/components/ui";
 import { REPO_FILTERS } from "@/lib/constants";
 import type { GitHubUser, RepoFilter } from "@/types";
 
@@ -15,15 +15,15 @@ export default function DashboardHeader({
 }: DashboardHeaderProps) {
   return (
     <SectionHeader
-    title={`${user.name || user.login}\u2019s Analytics`}
-    subtitle={user.bio || undefined}
+      title={`${user.name || user.login}\u2019s Analytics`}
+      subtitle={user.bio || undefined}
     >
       {REPO_FILTERS.map((filter) => (
         <FilterPill
-        key={filter.value}
-        label={filter.label}
-        active={activeFilter === filter.value}
-        onClick={() => onFilterChange(filter.value as RepoFilter)}
+          key={filter.value}
+          label={filter.label}
+          active={activeFilter === filter.value}
+          onClick={() => onFilterChange(filter.value as RepoFilter)}
         />
       ))}
     </SectionHeader>

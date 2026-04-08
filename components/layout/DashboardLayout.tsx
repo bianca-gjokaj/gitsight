@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Sidebar from "./Sidebar";
 import Header from "./Header";
@@ -16,7 +16,7 @@ interface DashboardLayoutProps {
   avatarUrl?: string;
 }
 
-export default function DashboardLayout ({
+export default function DashboardLayout({
   children,
   dark,
   onToggleTheme,
@@ -29,8 +29,11 @@ export default function DashboardLayout ({
 }: DashboardLayoutProps) {
   return (
     <div
-    className={`
-      flex min-h-screen font-sans bg-background text-body transition-colors duration-300 ${dark ? 'dark' : ''}
+      className={`
+        flex min-h-screen font-sans
+        bg-background text-body
+        transition-colors duration-300
+        ${dark ? "dark" : ""}
       `}
     >
       <Sidebar

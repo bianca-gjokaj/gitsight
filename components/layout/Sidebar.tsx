@@ -15,45 +15,48 @@ interface SidebarProps {
   onToggleTheme: () => void;
 }
 
-export default function Sidebar ({
+export default function Sidebar({
   activeNav, onNavChange, dark, onToggleTheme,
 }: SidebarProps) {
   return (
     <aside className="fixed left-0 top-0 z-50 w-[72px] h-screen bg-sidebar flex flex-col items-center py-6 gap-1 rounded-r-xl">
-      {/* logo */}
+      {/* Logo */}
       <div className="text-primary mb-6">
-        <FaGithub size={22}/>
+        <FaGithub size={22} />
       </div>
 
-      {/* Nav Items */}
+      {/* Nav items */}
       {NAV_ITEMS.map((item) => {
         const Icon = ICON_MAP[item.icon];
         const isActive = activeNav === item.id;
         return (
           <button
-          key={item.id}
-          onClick={() => onNavChange(item.id)}
-          title={item.label}
-          className={`w-10 h-10 rounded-mb flex items-center justify-center transition-all duration-150 border-none cursor-pointer
-          ${isActive
-            ? 'bg-primary text-white'
-            : 'bg-transparent text-faint hover:text-white/80 hover:bg-white/5'
-          }
-          `}
+            key={item.id}
+            onClick={() => onNavChange(item.id)}
+            title={item.label}
+            className={`
+              w-10 h-10 rounded-md flex items-center justify-center
+              transition-all duration-150 border-none cursor-pointer
+              ${isActive
+                ? "bg-primary text-white"
+                : "bg-transparent text-faint hover:text-white/80 hover:bg-white/5"
+              }
+            `}
           >
-            {Icon && <Icon size={20}/>}
+            {Icon && <Icon size={20} />}
           </button>
         );
       })}
-      <div className="flex-1"/>
 
-      {/* Theme Toggle */}
-      <button 
-      onClick={onToggleTheme}
-      title={ dark? "Light Mode" : "Dark Mode"}
-      className="w-10 h-10 rounded-mb flex items-center justify-center bg-transparent text-faint hover:text-white/80 hover:bg-white/5 transition-all duration-150 border-none cursor-pointer"
+      <div className="flex-1" />
+
+      {/* Theme toggle */}
+      <button
+        onClick={onToggleTheme}
+        title={dark ? "Light mode" : "Dark mode"}
+        className="w-10 h-10 rounded-md flex items-center justify-center bg-transparent text-faint hover:text-white/80 hover:bg-white/5 transition-all duration-150 border-none cursor-pointer"
       >
-        {dark ? <Sun size={18}/> : <Moon size={18}/>}
+        {dark ? <Sun size={18} /> : <Moon size={18} />}
       </button>
     </aside>
   );

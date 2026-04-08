@@ -21,8 +21,8 @@ export default function TopReposChart({ repos }: TopReposChartProps) {
   return (
     <DashCard title="Top Repositories" subtitle="Ranked by stars">
       <ChartContainer height="lg">
-        <BarChart data={chartData} horizontal/>
+        <BarChart data={chartData} horizontal />
       </ChartContainer>
     </DashCard>
-  )
+  );
 }
