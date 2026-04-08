@@ -11,7 +11,7 @@ export async function GET(
   const { username } = params;
 
   if (!username || username.length > 39) {
-    return NextResponse.json (
+    return NextResponse.json(
       { error: "Invalid username" },
       { status: 400 }
     );
@@ -20,16 +20,18 @@ export async function GET(
   const headers: HeadersInit = {
     Accept: "application/vnd.github.v3+json",
   };
-  
+
+  // Attach token if available (server-side only)
   if (process.env.GITHUB_TOKEN) {
-    headers.Authorization = `token ${process.env.GITHUB_TOKEN}`;
+    headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
   }
 
   try {
-    const [userRes, reposRes] = await Promise.all ([
+    const [userRes, reposRes] = await Promise.all([
       fetch(`${GITHUB_API}/users/${username}`, { headers, next: { revalidate: 300 } }),
       fetch(`${GITHUB_API}/users/${username}/repos?per_page=100&sort=updated`, {
-        headers, next: { revalidate: 300 },
+        headers,
+        next: { revalidate: 300 },
       }),
     ]);
 
@@ -46,14 +48,14 @@ export async function GET(
         ? new Date(Number(reset) * 1000).toLocaleTimeString()
         : "soon";
       return NextResponse.json(
-        { error: `Rate limit exceeded. Resets at ${resetTime}.`},
+        { error: `Rate limit exceeded. Resets at ${resetTime}.` },
         { status: 429 }
       );
     }
 
     if (!userRes.ok || !reposRes.ok) {
       return NextResponse.json(
-        { error: "Github API error" },
+        { error: "GitHub API error" },
         { status: 502 }
       );
     }
@@ -71,13 +73,13 @@ export async function GET(
       {
         headers: {
           "X-RateLimit-Remaining": remaining ?? "unknown",
-          "Cache-Control": 'public, s-maxage=300, stale-while-revalidate=600',
+          "Cache-Control": "public, s-maxage=300, stale-while-revalidate=600",
         },
       }
     );
   } catch (err) {
-    console.error("GitHub API procy error:", err);
-    return NextResponse.json (
+    console.error("GitHub API proxy error:", err);
+    return NextResponse.json(
       { error: "Failed to reach GitHub API" },
       { status: 502 }
     );
