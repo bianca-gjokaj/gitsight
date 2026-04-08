@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
-import "../app/globals.css";
+import "@/styles/globals.css";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -10,7 +10,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "GitHub Analytics Dashboard",
+  title: "GitSight",
   description:
     "Professional SaaS dashboard for visualizing GitHub repository statistics, language distribution, and contribution trends.",
 };

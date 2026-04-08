@@ -21,13 +21,13 @@ import {
 import { useGitHubDashboard } from "@/hooks";
 import type { TimeRange, RepoFilter } from "@/types";
 
-const DEFAULT_USERNAME = 'torvalds';
+const DEFAULT_USERNAME = "torvalds";
 
 export default function DashboardPage() {
   const [dark, setDark] = useState(false);
-  const [activeNav, setActiveNav] = useState('dashboard');
-  const [timeRange, setTimeRange] = useState<TimeRange>('365');
-  const [repoFilter, setRepoFilter] = useState<RepoFilter>('all');
+  const [activeNav, setActiveNav] = useState("dashboard");
+  const [timeRange, setTimeRange] = useState<TimeRange>("365");
+  const [repoFilter, setRepoFilter] = useState<RepoFilter>("all");
   const { data, loading, error, loadUser } = useGitHubDashboard();
 
   useEffect(() => {
@@ -45,9 +45,9 @@ export default function DashboardPage() {
       onSearch={loadUser}
       avatarUrl={data?.user.avatar_url}
     >
-      {loading && <Spinner message="Fetching GitHub Data..."/>}
-      {error && !loading && <ErrorBanner message={error}/>}
-      {!data && !loading && !error && <EmptyState/>}
+      {loading && <Spinner message="Fetching GitHub data…" />}
+      {error && !loading && <ErrorBanner message={error} />}
+      {!data && !loading && !error && <EmptyState />}
 
       {data && !loading && (
         <div className="animate-fade-in">
@@ -57,9 +57,9 @@ export default function DashboardPage() {
             onFilterChange={setRepoFilter}
           />
 
-          <StatsCards stats={data.stats} user={data.user}/>
+          <StatsCards stats={data.stats} user={data.user} />
 
-          {/* Row1: 5 compact chart cards */}
+          {/* Row 1: 5 compact chart cards */}
           <DashboardGrid columns="grid-cols-5">
             <LanguageDistributionChart languages={data.languages} />
             <ActivityByDayChart activityByDay={data.activityByDay} />
