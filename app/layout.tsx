@@ -10,7 +10,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "GitSight",
+  title: "GitHub Analytics Dashboard",
   description:
     "Professional SaaS dashboard for visualizing GitHub repository statistics, language distribution, and contribution trends.",
 };
