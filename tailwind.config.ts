@@ -1,76 +1,77 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
-    ".app/**/*.{js,ts,jsx,tsx,mdx}",
-    ".components/**/*.{js,ts,jsx,tsx,mdx}"
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        background: 'var(--color-background)',
+        background: "var(--color-background)",
         card: {
-          DEFAULT: 'var(--color-card)',
-          elevated: 'var(--color-card-elevated)',
+          DEFAULT: "var(--color-card)",
+          elevated: "var(--color-card-elevated)",
         },
-        sidebar: 'var(--color-sidebar)',
-        heading: 'var(--color-heading)',
-        body: 'var(--color-body)',
-        muted: 'var(--color-muted)',
-        faint: 'var(--color-faint)',
+        sidebar: "var(--color-sidebar)",
+        heading: "var(--color-heading)",
+        body: "var(--color-body)",
+        muted: "var(--color-muted)",
+        faint: "var(--color-faint)",
         border: {
-          DEFAULT: 'var(--color-border)',
-          strong: 'var(--color-border-strong)',
+          DEFAULT: "var(--color-border)",
+          strong: "var(--color-border-strong)",
         },
-        primary : {
-          DEFAULT: 'var(--color-primary)',
-          muted: 'var(--color-primary-muted)',
-          hover: 'var(--color-primary-hover)',
+        primary: {
+          DEFAULT: "var(--color-primary)",
+          hover: "var(--color-primary-hover)",
+          muted: "var(--color-primary-muted)",
         },
-        success: 'var(--color-success)',
-        danger: 'var(--color-danger)',
-        warning: 'var(--color-warning)',
+        success: "var(--color-success)",
+        warning: "var(--color-warning)",
+        danger: "var(--color-danger)",
       },
       fontFamily: {
-        sans: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
+        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
       },
       borderRadius: {
-        sm: '8px',
-        md: '12px',
-        lg: '16px',
-        xl: '20px',
-        pill: '9999px',
+        sm: "8px",
+        md: "12px",
+        lg: "16px",
+        xl: "20px",
+        pill: "9999px",
       },
       boxShadow: {
-        card: 'var(--shadow-card)',
-        'card-hover': 'var(--shadow-card-hover)',
-        elevated: 'var(--shadow-elevated)',
+        card: "var(--shadow-card)",
+        "card-hover": "var(--shadow-card-hover)",
+        elevated: "var(--shadow-elevated)",
       },
       animation: {
-        'fade-in': 'fadeIn 0.35s ease-out',
-        'slide-up': 'slideUp 0.35s ease-out',
-        spinner: 'spin 0.8s linear infinite',
+        "fade-in": "fadeIn 0.35s ease-out",
+        "slide-up": "slideUp 0.35s ease-out",
+        spinner: "spin 0.8s linear infinite",
       },
-      keyFrames: {
+      keyframes: {
         fadeIn: {
-          '0%': {opacity: '0'},
-          '100%': {opacity: '1'},
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
         slideUp: {
-          '0%': {opacity: '0', transform: 'translateY(8px)'},
-          '100%': {opacity: '1', transform: 'translateY(0)'},
+          "0%": { opacity: "0", transform: "translateY(8px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
       spacing: {
-        grid: 'var(--spacing-grid)',
-        card: 'var(--spacing-card)',
-        section: 'var(--spacing-section)',
+        grid: "var(--spacing-grid)",
+        card: "var(--spacing-card)",
+        section: "var(--spacing-section)",
       },
     },
   },
   plugins: [],
 };
 
-export default config
+export default config;
+
 
