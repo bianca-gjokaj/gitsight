@@ -14,13 +14,9 @@ export default function DashboardLayout({
 
   return (
     <div className="flex min-h-screen font-sans bg-background text-body transition-colors duration-300">
-      <Sidebar activeNav={""} onNavChange={function (): void {
-        throw new Error("Function not implemented.");
-      } } dark={false} onToggleTheme={function (): void {
-        throw new Error("Function not implemented.");
-      } } />
+      <Sidebar />
       <div className="ml-[72px] flex-1 flex flex-col min-h-screen">
-        <Header timeRange={timeRange} onTimeRangeChange={setTimeRange} />
+        <Header timeRange={timeRange} onTimeRangeChange={setTimeRange}/>
         <main className="flex-1 px-8 py-6 pb-10">{children}</main>
       </div>
     </div>
