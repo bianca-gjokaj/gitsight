@@ -46,7 +46,7 @@ export default function RepoList({ repos, languages }: RepoListProps) {
                 <Star size={12} /> {repo.stargazers_count}
               </span>
               <span className="flex items-center gap-1">
-                <GitFork size={12} /> {repo.fork_counts}
+                <GitFork size={12} /> {repo.forks_count}
               </span>
             </div>
           </a>

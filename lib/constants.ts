@@ -34,12 +34,11 @@ export const CHART_PALETTE = [
 
 // Sidebar Nav Definition
 export const NAV_ITEMS: NavItem[] = [
-  { id: "dashboard", label: "Dashboard", icon: "LayoutDashboard" },
-  { id: "repos", label: "Repositories", icon: "BookOpen" },
-  { id: "languages", label: "Languages", icon: "Code2" },
-  { id: "activity", label: "Activity", icon: "Activity" },
-  { id: "history", label: "History", icon: "Clock" },
-  { id: "settings", label: "Settings", icon: "Settings" },
+  { id: "dashboard", label: "Dashboard", icon: "LayoutDashboard", href: '/dashboard' },
+  { id: "repos", label: "Repositories", icon: "BookOpen", href: '/repos' },
+  { id: "languages", label: "Languages", icon: "Code2", href: '/languages' },
+  { id: "activity", label: "Activity", icon: "Activity", href: '/activity' },
+  { id: "settings", label: "Settings", icon: "Settings", href: '/settings'},
 ];
 
 // Time Range options

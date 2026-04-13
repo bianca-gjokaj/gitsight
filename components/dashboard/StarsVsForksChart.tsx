@@ -12,7 +12,7 @@ export default function StarsVsForksChart({ repos }: StarsVsForksChartProps) {
   const chartData = {
     datasets: [{
       label: "Repos",
-      data: subset.map((r) => ({ x: r.stargazers_count, y: r.fork_counts })),
+      data: subset.map((r) => ({ x: r.stargazers_count, y: r.forks_count })),
       backgroundColor: BRAND_COLORS.orange + "aa",
       pointRadius: 6,
       pointHoverRadius: 10,
@@ -28,7 +28,7 @@ export default function StarsVsForksChart({ repos }: StarsVsForksChartProps) {
           yLabel="Forks"
           tooltipCallback={(i) => {
             const r = subset[i];
-            return r ? `${r.name}: ${r.stargazers_count}\u2605 / ${r.fork_counts} forks` : "";
+            return r ? `${r.name}: ${r.stargazers_count}\u2605 / ${r.forks_count} forks` : "";
           }}
         />
       </ChartContainer>
