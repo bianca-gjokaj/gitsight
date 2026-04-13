@@ -29,7 +29,7 @@ export interface GitHubRepo {
   language: string | null;
   stargazers_count: number;
   watchers_count: number;
-  fork_counts: number;
+  forks_count: number;
   open_issues_count: number;
   size: number;
   created_at: string;
@@ -44,7 +44,9 @@ export interface GitHubCommitWeek {
   days: number[];
 }
 
-// Processed / Aggregated Analytics Types
+// ─────────────────────────────────────────────
+// Processed / aggregated analytics types
+// ─────────────────────────────────────────────
 
 export interface LanguageBreakdown {
   language: string;
@@ -82,7 +84,9 @@ export interface RepoSizeEntry {
   sizeKB: number;
 }
 
-// Dashboard Aggregate - What UI Needs
+// ─────────────────────────────────────────────
+// Dashboard aggregate — everything the UI needs
+// ─────────────────────────────────────────────
 
 export interface DashboardData {
   user: GitHubUser;
@@ -96,13 +100,17 @@ export interface DashboardData {
   sizeDistribution: RepoSizeEntry[];
 }
 
-// UI State Types
-export type TimeRange = '365' | '180' | '30';
+// ─────────────────────────────────────────────
+// UI state types
+// ─────────────────────────────────────────────
 
-export type RepoFilter = 'all' | 'public' | 'sources' | 'forks';
+export type TimeRange = "365" | "180" | "90" | "30";
+
+export type RepoFilter = "all" | "public" | "sources" | "forks";
 
 export interface NavItem {
   id: string;
   label: string;
-  icon: string; //lucide-react icon 
+  icon: string;
+  href: string;
 }

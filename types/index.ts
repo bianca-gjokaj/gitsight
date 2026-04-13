@@ -1,5 +1,3 @@
-// single import path for all types (barrel export)
-
 export type {
   GitHubUser,
   GitHubRepo,
@@ -14,4 +12,4 @@ export type {
   TimeRange,
   RepoFilter,
   NavItem,
-} from './github';
+} from "./github";

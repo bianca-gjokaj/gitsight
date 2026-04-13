@@ -17,7 +17,7 @@ export function computeRepoStats(repos: GitHubRepo[]) : RepoStats {
     (acc, repo) => ({
       totalRepos: acc.totalRepos + 1,
       totalStars: acc.totalStars + repo.stargazers_count,
-      totalForks: acc.totalForks + repo.fork_counts,
+      totalForks: acc.totalForks + repo.forks_count,
       totalWatchers: acc.totalWatchers + repo.watchers_count,
       totalOpenIssues: acc.totalOpenIssues + repo.open_issues_count,
     }),
