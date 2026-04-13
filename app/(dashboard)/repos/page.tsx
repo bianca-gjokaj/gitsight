@@ -27,7 +27,7 @@ export default function ReposPage() {
 
     repos.sort((a, b) => {
       if (sortBy === "stars") return b.stargazers_count - a.stargazers_count;
-      if (sortBy === "forks") return b.fork_counts - a.fork_counts;
+      if (sortBy === "forks") return b.forks_count - a.forks_count;
       return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
     });
 
@@ -92,7 +92,7 @@ export default function ReposPage() {
                   <Star size={13} /> {repo.stargazers_count.toLocaleString()}
                 </span>
                 <span className="flex items-center gap-1">
-                  <GitFork size={13} /> {repo.fork_counts.toLocaleString()}
+                  <GitFork size={13} /> {repo.forks_count.toLocaleString()}
                 </span>
               </div>
               <a
